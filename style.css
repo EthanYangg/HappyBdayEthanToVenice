@@ -1,0 +1,236 @@
+body {
+    font-family: 'Patrick Hand', 'Arial', cursive, sans-serif;
+    text-align: center;
+    padding: 50px;
+    background-image: url('Backdrop.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.container {
+    background-color: #ffffff21;
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease-in-out, backdrop-filter 0.5s, opacity 0.5s;
+}
+
+h1 {
+    color: #FFF3E2;
+    font-size: 3em;
+    font-family: 'Patrick Hand', cursive;
+}
+
+p {
+    color: #fff;
+    font-size: 1.5em;
+    font-family: 'Patrick Hand', cursive;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: transparent;
+    color: #FFF3E2;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    outline: 0.5px solid #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, filter 0.3s, transform 0.3s;
+    font-family: 'Patrick Hand', cursive;
+}
+
+button:hover {
+    background-color: #ffffff21;
+    transform: scale(1.05);
+}
+
+#surpriseMessage {
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease, visibility 0.6s;
+}
+
+#surpriseMessage.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#surpriseMessage.hide {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+#u, #me {
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out, transform 0.3s;
+    object-fit: cover;
+    border: 1.5px solid #fff;
+}
+
+#u:hover, #me:hover {
+    filter: brightness(1.2);
+    transform: scale(1.1);
+}
+
+#u {
+    background-image: url('image-u.jpg');
+}
+
+#me {
+    background-image: url('image-me.jpg');
+}
+
+@media (max-width: 600px) {
+    #u, #me {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    #u, #me {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #u, #me {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+#questionBtn {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: transparent;
+    color: #FFF3E2;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    outline: 0.5px solid #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, filter 0.3s, transform 0.3s;
+    font-family: 'Patrick Hand', cursive;
+    margin: 20px 0;
+}
+
+#questionBtn:hover {
+    filter: brightness(1.2);
+    background-color: #ffffff21;
+    transform: scale(1.05);
+}
+
+#questionBox {
+    display: none; /* Initially hidden */
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#questionBox.show {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#questionBox button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: transparent;
+    color: #FFF3E2;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    outline: 0.5px solid #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin: 0 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+#questionBox button:hover {
+    background-color: #ffffff21;
+    transform: scale(1.05);
+}
+
+#questionBox button:active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+#noBtn {
+    position: relative;
+    overflow: hidden;
+}
+
+#noBtn::after {
+    content: 'yes';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF3E2;
+    font-size: 1em;
+    background-color: transparent;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+#noBtn:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+#noBtn:hover {
+    color: transparent; /* Hide the original text */
+}
